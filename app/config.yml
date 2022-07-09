@@ -107,10 +107,10 @@ indicators:
         candle_period: 15m
         period_count: 6
     sqzmom:
-      - enabled: false
+      - enabled: true
         alert_enabled: true
         alert_frequency: once
-        candle_period: 5m
+        candle_period: 15m
         signal:
           - close
     donchianLong:
@@ -256,12 +256,13 @@ conditionals:
   - label: "LONG"
     hot:
       - donchianLong: 0
+      - sqzmom: 0
 
 notifiers:
     telegram:
         required:
-            token: 5540036220:AAEFIPBxLNpuFFZG-71ihjq7oHkspuPExm4
-            chat_id: -1001562826503
+            token: 5354875438:AAGnC64Cod7Z7_DinL245e6TvFzVTFNnITg
+            chat_id: -1001656129064
         optional:
             parse_mode: html
             template: "<b>BTC Scalping</b>
