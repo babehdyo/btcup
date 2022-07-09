@@ -2,7 +2,7 @@
 settings:
   log_level: INFO
   output_mode: cli
-  update_interval: 3600
+  update_interval: 2700
   start_worker_interval: 5
   market_data_chunk_size: 2
   enable_charts: false
