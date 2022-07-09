@@ -1,0 +1,302 @@
+#General Settings
+settings:
+  log_level: INFO
+  output_mode: cli
+  update_interval: 300
+  start_worker_interval: 5
+  market_data_chunk_size: 2
+  enable_charts: false
+  timezone: UTC
+  market_pairs:
+    - BTC/USDT
+
+exchanges:
+    binance:
+        required:
+            enabled: true
+        future: true
+
+indicators:
+    candle_recognition:
+      - enabled: false
+        alert_enabled: false
+        alert_frequency: 1h
+        signal:
+          - inverted_hammer
+        candle_check: 2
+        notification: hot
+        candle_period: 15m
+        hot: 0
+        cold: 0
+        chart: false
+    stochrsi_cross:
+      - enabled: false  
+    macd:
+      - enabled: false
+    macd_cross:
+      - enabled: false
+    bbp:
+      - enabled: false
+    obv:
+      - enabled: false
+    mfi:
+      - enabled: false
+    ichimoku:
+      - enabled: false
+    ma_ribbon:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: always
+        signal:
+          - pval
+          - corr
+        hot: 60
+        cold: -60
+        hot_label: 'Uptrend is coming'
+        cold_label: 'Downtred is coming'
+        candle_period: 5m
+        pval_th: 20
+        ma_series: 50, 100, 150, 200
+    ma_crossover:
+      - enabled: false
+    klinger_oscillator:
+      - enabled: false
+    adx:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        signal:
+          - adx
+        hot: 21
+        cold: 20
+        candle_period: 5m
+        period_count: 14
+    rsi:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        signal:
+          - rsi
+        hot: 49
+        cold: 51
+        candle_period: 15m
+        period_count: 14
+    bollinger:
+      - enabled: false
+    aroon_oscillator:
+      - enabled: false
+    stoch_rsi:
+      - enabled: false
+    iiv:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: always
+        signal:
+         - iiv
+        hot: 3
+        cold: 0
+        candle_period: 5m
+    momentum:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: always
+        signal:
+          - momentum
+        hot: 0
+        cold: 0
+        candle_period: 15m
+        period_count: 6
+    sqzmom:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        candle_period: 5m
+        signal:
+          - close
+    donchianLong:
+      - enabled: true
+        alert_enabled: true
+        alert_frequency: always
+        signal:
+          - LONG
+          - END LONG
+        hot: True
+        cold: True
+        candle_period: 1h
+        period_count: 30
+    donchianShort:
+      - enabled: true
+        alert_enabled: true
+        alert_frequency: once
+        signal:
+          - SHORT
+          - END SHORT
+        hot: True
+        cold: True
+        candle_period: 1h
+        period_count: 30
+
+informants:
+    lrsi:
+      - enabled: false
+    vwap:
+      - enabled: false
+    sma:
+      - enabled: false
+        signal:
+          - sma
+        candle_period: 30m
+        period_count: 5
+      - enabled: false
+        signal:
+          - sma
+        candle_period: 30m
+        period_count: 50
+      - enabled: false
+        signal:
+          - sma
+        candle_period: 30m
+        period_count: 89
+    ema:
+      - enabled: false
+        signal:
+          - ema
+        candle_period: 5m
+        period_count: 8
+      - enabled: false
+        signal:
+          - ema
+        candle_period: 5m
+        period_count: 13
+      - enabled: false
+        signal:
+          - ema
+        candle_period: 5m
+        period_count: 100
+      - enabled: false
+        signal:
+          - ema
+        candle_period: 5m
+        period_count: 34
+      - enabled: false
+        signal:
+          - ema
+        candle_period: 5m
+        period_count: 55
+    bollinger_bands:
+      - enabled: false
+    ohlcv:
+      - enabled: true
+        signal:
+          - high
+          - low
+          - close
+        candle_period: 1h
+        period_count: 1
+         
+crossovers:
+    std_crossover:
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        key_indicator: ema
+        key_indicator_index: 0
+        key_indicator_type: informants
+        key_signal: ema
+        crossed_indicator: ema
+        crossed_indicator_index: 1
+        crossed_indicator_type: informants
+        crossed_signal: ema
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        key_indicator: ema
+        key_indicator_index: 1
+        key_indicator_type: informants
+        key_signal: ema
+        crossed_indicator: ema
+        crossed_indicator_index: 2
+        crossed_indicator_type: informants
+        crossed_signal: ema
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        key_indicator: ema
+        key_indicator_index: 2
+        key_indicator_type: informants
+        key_signal: ema
+        crossed_indicator: ema
+        crossed_indicator_index: 3
+        crossed_indicator_type: informants
+        crossed_signal: ema
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        key_indicator: ema
+        key_indicator_index: 3
+        key_indicator_type: informants
+        key_signal: ema
+        crossed_indicator: ema
+        crossed_indicator_index: 4
+        crossed_indicator_type: informants
+        crossed_signal: ema
+      - enabled: false
+        alert_enabled: true
+        alert_frequency: once
+        key_indicator: ohlcv
+        key_indicator_index: 0
+        key_indicator_type: informants
+        key_signal: low
+        crossed_indicator: ema
+        crossed_indicator_index: 3
+        crossed_indicator_type: informants
+        crossed_signal: ema
+
+conditionals:
+  - label: "LONG"
+    hot:
+      - donchianLong: 0
+
+notifiers:
+    telegram:
+        required:
+            token: 5540036220:AAEFIPBxLNpuFFZG-71ihjq7oHkspuPExm4
+            chat_id: -1001562826503
+        optional:
+            parse_mode: html
+            template: "<b>BTC Scalping</b>
+            \n💼{{ market }}
+            \n🟢{{ status }}
+            \n🚥Leverage: CROSS 125X
+            \n💰Entry: {{ price_value['1h'].close  }}
+            \n⛔️Stoploss: {{ decimal_format|format(price_value['1h'].close * 0.98) }}
+            \n🎯Target 1: {{ decimal_format|format(price_value['1h'].close * 1.01) }}
+            \n🎯Target 2: {{ decimal_format|format(price_value['1h'].close * 1.02) }}
+            \n🎯Target 3: {{ decimal_format|format(price_value['1h'].close * 1.03) }}
+            \n🎯Target 4: {{ decimal_format|format(price_value['1h'].close * 1.04) }}
+            \n🎯Target 5: {{ decimal_format|format(price_value['1h'].close * 1.05) }}
+            \n🎯Target 6: {{ decimal_format|format(price_value['1h'].close * 1.06) }}
+            \n🎯Target 7: {{ decimal_format|format(price_value['1h'].close * 1.07) }}
+            \n📛#superhighrisk
+            \n<b>Signal By</b> @cryptokillerchannel"
+#    telegram_01:
+#        required:
+#            token: 5540036220:AAEFIPBxLNpuFFZG-71ihjq7oHkspuPExm4
+#            chat_id: -1001683947194
+#        optional:
+#           parse_mode: html
+#            template: "<b>BTC Scalping</b>
+#            \n💼{{ market }}
+#            \n🟢{{ status }}
+#            \n🚥Leverage: CROSS 125X
+#            \n💰Entry: {{ price_value['1h'].close  }}
+#            \n⛔️Stoploss: {{ decimal_format|format(price_value['1h'].close * 0.98) }}
+#            \n🎯Target 1: {{ decimal_format|format(price_value['1h'].close * 1.01) }}
+#            \n🎯Target 2: {{ decimal_format|format(price_value['1h'].close * 1.02) }}
+#            \n🎯Target 3: {{ decimal_format|format(price_value['1h'].close * 1.03) }}
+#            \n🎯Target 4: {{ decimal_format|format(price_value['1h'].close * 1.04) }}
+#            \n🎯Target 5: {{ decimal_format|format(price_value['1h'].close * 1.05) }}
+#            \n🎯Target 6: {{ decimal_format|format(price_value['1h'].close * 1.06) }}
+#            \n🎯Target 7: {{ decimal_format|format(price_value['1h'].close * 1.07) }}
+#            \n📛#superhighrisk
+#            \n<b>Signal By</b> @CuanHunterCrypto"
