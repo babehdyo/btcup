@@ -287,18 +287,18 @@ notifiers:
             chat_id: -1001567294051
         optional:
            parse_mode: html
-            template: "<b>BIG BOSS COIN</b>
-            \n💼{{ market }}
-            \n🟢{{ status }}
-            \n🚥Leverage: CROSS 100X
-            \n💰Entry: {{ price_value['1h'].close  }}
-            \n⛔️Stoploss: {{ decimal_format|format(price_value['1h'].close * 0.98) }}
-            \n🎯Target 1: {{ decimal_format|format(price_value['1h'].close * 1.01) }}
-            \n🎯Target 2: {{ decimal_format|format(price_value['1h'].close * 1.02) }}
-            \n🎯Target 3: {{ decimal_format|format(price_value['1h'].close * 1.03) }}
-            \n🎯Target 4: {{ decimal_format|format(price_value['1h'].close * 1.04) }}
-            \n🎯Target 5: {{ decimal_format|format(price_value['1h'].close * 1.05) }}
-            \n🎯Target 6: {{ decimal_format|format(price_value['1h'].close * 1.06) }}
-            \n🎯Target 7: {{ decimal_format|format(price_value['1h'].close * 1.07) }}
-            \n📛#superhighrisk. Only For BTC and ETH
-            \n<b>Signal By</b> @CuanHunterCrypto"
+           template: "<b>BIG BOSS COIN</b>
+           \n💼{{ market }}
+           \n🟢{{ status }}
+           \n🚥Leverage: CROSS 100X
+           \n💰Entry: {{ price_value['1h'].close  }}
+           \n⛔️Stoploss: {{ decimal_format|format(price_value['1h'].close * 0.98) }}
+           \n🎯Target 1: {{ decimal_format|format(price_value['1h'].close * 1.01) }}
+           \n🎯Target 2: {{ decimal_format|format(price_value['1h'].close * 1.02) }}
+           \n🎯Target 3: {{ decimal_format|format(price_value['1h'].close * 1.03) }}
+           \n🎯Target 4: {{ decimal_format|format(price_value['1h'].close * 1.04) }}
+           \n🎯Target 5: {{ decimal_format|format(price_value['1h'].close * 1.05) }}
+           \n🎯Target 6: {{ decimal_format|format(price_value['1h'].close * 1.06) }}
+           \n🎯Target 7: {{ decimal_format|format(price_value['1h'].close * 1.07) }}
+           \n📛#superhighrisk. Only For BTC and ETH
+           \n<b>Signal By</b> @CuanHunterCrypto"
