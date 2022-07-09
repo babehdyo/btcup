@@ -9,6 +9,7 @@ settings:
   timezone: UTC
   market_pairs:
     - BTC/USDT
+    - ETH/USDT
 
 exchanges:
     binance:
@@ -265,10 +266,10 @@ notifiers:
             chat_id: -1001656129064
         optional:
             parse_mode: html
-            template: "<b>BTC Scalping</b>
+            template: "<b>BIG PAIR Scalping</b>
             \n💼{{ market }}
             \n🟢{{ status }}
-            \n🚥Leverage: CROSS 125X
+            \n🚥Leverage: CROSS 100X
             \n💰Entry: {{ price_value['1h'].close  }}
             \n⛔️Stoploss: {{ decimal_format|format(price_value['1h'].close * 0.98) }}
             \n🎯Target 1: {{ decimal_format|format(price_value['1h'].close * 1.01) }}
