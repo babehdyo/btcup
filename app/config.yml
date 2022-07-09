@@ -2,7 +2,7 @@
 settings:
   log_level: INFO
   output_mode: cli
-  update_interval: 2700
+  update_interval: 900
   start_worker_interval: 5
   market_data_chunk_size: 2
   enable_charts: false
@@ -108,7 +108,7 @@ indicators:
         candle_period: 15m
         period_count: 6
     sqzmom:
-      - enabled: false
+      - enabled: true
         alert_enabled: true
         alert_frequency: once
         candle_period: 15m
@@ -257,6 +257,7 @@ conditionals:
   - label: "LONG"
     hot:
       - donchianLong: 0
+      - sqzmom: 0
 
 notifiers:
     telegram:
