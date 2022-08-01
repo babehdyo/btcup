@@ -65,7 +65,7 @@ indicators:
     adx:
       - enabled: true
         alert_enabled: true
-        alert_frequency: once
+        alert_frequency: always
         signal:
           - ndi
         hot: 25
@@ -74,7 +74,7 @@ indicators:
         period_count: 14
       - enabled: true
         alert_enabled: true
-        alert_frequency: once
+        alert_frequency: always
         signal:
           - pdi
         hot: 21
