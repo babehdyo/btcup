@@ -271,7 +271,7 @@ conditionals:
 notifiers:
     telegram_00:
         required:
-            token: 5354875438:AAGnC64Cod7Z7_DinL245e6TvFzVTFNnITg
+            token: 5505963139:AAHi1MLjjvJ2vbqUtr3GZzJwKeDbbXu0uEY
             chat_id: -1001656129064
         optional:
             parse_mode: html
@@ -292,7 +292,7 @@ notifiers:
             \n<b>Signal By</b> @cryptokillerchannel"
     telegram_01:
         required:
-            token: 5354875438:AAGnC64Cod7Z7_DinL245e6TvFzVTFNnITg
+            token: 5505963139:AAHi1MLjjvJ2vbqUtr3GZzJwKeDbbXu0uEY
             chat_id: -1001567294051
         optional:
            parse_mode: html
