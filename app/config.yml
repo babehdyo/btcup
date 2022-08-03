@@ -63,7 +63,7 @@ indicators:
     klinger_oscillator:
       - enabled: false
     adx:
-      - enabled: false
+      - enabled: true
         alert_enabled: true
         alert_frequency: always
         signal:
@@ -72,7 +72,7 @@ indicators:
         cold: 20
         candle_period: 1h
         period_count: 14
-      - enabled: false
+      - enabled: true
         alert_enabled: true
         alert_frequency: always
         signal:
@@ -206,7 +206,7 @@ informants:
          
 crossovers:
     std_crossover:
-      - enabled: false
+      - enabled: true
         alert_enabled: true
         alert_frequency: always
         key_indicator: adx
@@ -266,6 +266,8 @@ conditionals:
   - label: "LONG"
     hot:
       - donchianLong: 0
+    cold:
+      - std_crossover: 0
 
 notifiers:
     telegram_00:
