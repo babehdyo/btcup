@@ -30,6 +30,9 @@ class SQZMOM(IndicatorUtils):
 
         df = self.convert_to_dataframe(historical_data)
         sqzmom = df.copy(deep=True);
+        
+        lastClosedCandleIndex = -2
+        currentIndex = lastClosedCandleIndex
 
         # parameter setup (default values in the original indicator)
         length = 20
@@ -80,14 +83,14 @@ class SQZMOM(IndicatorUtils):
         # 1. black cross becomes gray (the squeeze is released)
         long_cond1 = (df['squeeze_off'][-2] == False) & (df['squeeze_off'][-1] == True) 
         # 2. bar value is positive => the bar is light green
-        long_cond2 = df['value'] >= df['value'][-1] and df['value'][-1] >= df['value'][-2]
+        long_cond2 = df['value'][lastClosedCandleIndex] >= df['value'][lastClosedCandleIndex - 1] and df['value'][lastClosedCandleIndex - 1] >= df['value'][lastClosedCandleIndex - 2]
         enter_long = long_cond2
 
         # entry point for short position:
         # 1. black cross becomes gray (the squeeze is released)
         short_cond1 = (df['squeeze_off'][-2] == False) & (df['squeeze_off'][-1] == True) 
         # 2. bar value is negative => the bar is light red 
-        short_cond2 = df['value'] <= df['value'][-1] and df['value'][-1] <= df['value'][-2]
+        short_cond2 = df['value'][lastClosedCandleIndex] <= df['value'][lastClosedCandleIndex - 1] and df['value'][lastClosedCandleIndex - 1] <= df['value'][lastClosedCandleIndex - 2]
         enter_short = short_cond2        
         
         sqzmom['is_hot'] = False
