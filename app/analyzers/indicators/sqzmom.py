@@ -80,15 +80,15 @@ class SQZMOM(IndicatorUtils):
         # 1. black cross becomes gray (the squeeze is released)
         long_cond1 = (df['squeeze_off'][-2] == False) & (df['squeeze_off'][-1] == True) 
         # 2. bar value is positive => the bar is light green
-        long_cond2 = df['value'][-1] > 0
-        enter_long = long_cond1 and long_cond2
+        long_cond2 = df['value'] >= df['value'][-1] and df['value'][-1] >= df['value'][-2]
+        enter_long = long_cond2
 
         # entry point for short position:
         # 1. black cross becomes gray (the squeeze is released)
         short_cond1 = (df['squeeze_off'][-2] == False) & (df['squeeze_off'][-1] == True) 
         # 2. bar value is negative => the bar is light red 
-        short_cond2 = df['value'][-1] < 0
-        enter_short = short_cond1 and short_cond2        
+        short_cond2 = df['value'] <= df['value'][-1] and df['value'][-1] <= df['value'][-2]
+        enter_short = short_cond2        
         
         sqzmom['is_hot'] = False
         sqzmom['is_cold'] = False
