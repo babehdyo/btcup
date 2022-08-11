@@ -19,5 +19,7 @@ __all__ = [
     'stochrsi_cross',
     'sqzmom',
     'donchianLong',
-    'donchianShort'
+    'donchianShort',
+    'plus_di',
+    'minus_di'
 ]
