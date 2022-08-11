@@ -49,7 +49,9 @@ class StrategyAnalyzer():
             'stochrsi_cross': stochrsi_cross.StochRSICross().analyze,
             'sqzmom': sqzmom.SQZMOM().analyze,
             'donchianLong': donchianLong.Donchian().analyze,
-            'donchianShort': donchianShort.Donchian().analyze
+            'donchianShort': donchianShort.Donchian().analyze,
+            'plus_di': plus_di.PLUS_DI().analyze,
+            'minus_di': minus_di.MINUS_DI().analyze
         }
 
         return dispatcher
