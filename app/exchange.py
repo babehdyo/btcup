@@ -57,7 +57,7 @@ class ExchangeInterface():
                         "Unable to load exchange %s", new_exchange)
 
     @retry(retry=retry_if_exception_type(ccxt.NetworkError), stop=stop_after_attempt(3))
-    def get_historical_data(self, market_pair, exchange, time_unit, start_date=None, max_periods=300):
+    def get_historical_data(self, market_pair, exchange, time_unit, start_date=None, max_periods=100):
         """Get historical OHLCV for a symbol pair
 
         Decorators:
