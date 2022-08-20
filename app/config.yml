@@ -298,6 +298,7 @@ notifiers:
             parse_mode: html
             template: "<b>BIG BOSS COIN</b>
             \n💼{{ market }}
+            \n🏦Exchange: Binance Futures
             \n🟢{{ status }}
             \n🚥Leverage: CROSS 100X
             \n💰Entry: {{ price_value['1h'].close  }}
@@ -319,6 +320,7 @@ notifiers:
            parse_mode: html
            template: "<b>BIG BOSS COIN</b>
            \n💼{{ market }}
+           \n🏦Exchange: Binance Futures
            \n🟢{{ status }}
            \n🚥Leverage: CROSS 100X
            \n💰Entry: {{ price_value['1h'].close  }}
